@@ -1,4 +1,4 @@
 streamlit
-llama-cpp-python
+llama-cpp-python==0.3.16
 regex
 huggingface_hub
