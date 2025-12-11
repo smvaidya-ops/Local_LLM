@@ -307,18 +307,22 @@ st.set_page_config(page_title="Dual Local AI", layout="centered")
 def load_models():
     import huggingface_hub
 
+    hf_token = st.secrets["HF_TOKEN"]
+
+    # import os
+    # import 
+    huggingface_hub.login(token=hf_token)
+    cache_dir = "/mount/model_cache"
+    os.makedirs(cache_dir, exist_ok=True)
+
+
     # --- download mistral model ---
     mistral_path = huggingface_hub.hf_hub_download(
         repo_id="sana123456/Mistral",
         filename="quant_model.gguf",
-        repo_type="model"
-    )
-
-    # --- download qwen model ---
-    qwen_path = huggingface_hub.hf_hub_download(
-        repo_id="sana123456/qwen",
-        filename="qwen2.5-coder-7b-instruct-q4_k_m.gguf",
-        repo_type="model"
+        repo_type="model",
+        cache_dir=cache_dir,
+        token=hf_token,
     )
     
     with st.spinner("Loading Mistral (fast llama.cpp)..."):
