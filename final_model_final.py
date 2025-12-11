@@ -297,7 +297,7 @@ from llama_cpp import Llama
 import streamlit as st
 import re
 import threading
-
+import os
 st.set_page_config(page_title="Dual Local AI", layout="centered")
 
 # ==============================
