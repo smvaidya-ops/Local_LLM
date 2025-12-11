@@ -1,4 +1,4 @@
 streamlit
-llama-cpp-python==0.3.16
+llama-cpp-python==0.2.90 --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
 regex
 huggingface_hub
