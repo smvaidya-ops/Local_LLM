@@ -413,7 +413,12 @@ def stream_response(prompt: str):
     if use_qwen:
         full_prompt = f"System: You are a world-class coding/math assistant. Answer directly.\nUser: {prompt}\nAssistant:"
     else:
-        full_prompt = f"<s>[INST] <<SYS>>\nYou are a helpful assistant. Do NOT repeat the user's question. Answer directly and clearly.\n<</SYS>>\n\n{prompt} [/INST]"
+        full_prompt = (
+            "<|system|>\nYou are a helpful, concise assistant. "
+            "Do NOT repeat the user's question. Answer directly.\n"
+            "<|user|>\n" + prompt + "\n"
+            "<|assistant|>"
+        )
 
     response = ""
     try:
