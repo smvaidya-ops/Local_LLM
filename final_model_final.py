@@ -312,7 +312,7 @@ def load_models():
     # import os
     # import 
     huggingface_hub.login(token=hf_token)
-    cache_dir = "/mount/model_cache"
+    cache_dir = "./model_cache"
     os.makedirs(cache_dir, exist_ok=True)
 
 
