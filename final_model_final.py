@@ -324,6 +324,14 @@ def load_models():
         cache_dir=cache_dir,
         token=hf_token,
     )
+
+    qwen_path = huggingface_hub.hf_hub_download(
+        repo_id="sana123456/qwen",
+        filename="qwen2.5-coder-7b-instruct-q4_k_m.gguf",
+        repo_type="model",
+        cache_dir=cache_dir
+    )
+
     
     with st.spinner("Loading Mistral (fast llama.cpp)..."):
         mistral = Llama(
